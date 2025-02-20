@@ -1,8 +1,8 @@
 const express = require('express');
-const cors = require('cors');
 const bodyParser = require('body-parser');
-const app = express();
 const Razorpay = require('razorpay');
+const cors = require('cors');
+const app = express();
 
 const instance = new Razorpay({
     key_id: 'rzp_test_kGBtJmWd9jOHTh',
@@ -27,4 +27,8 @@ app.post('/order', async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
+});
+
+app.get('/', (req, res) => {
+    res.send('Razorpay Payment API is running 🚀');
 });
